@@ -1,9 +1,9 @@
 :root {
   --azul: #004cbe;
   --azul-oscuro: #003a94;
-  --gris-fondo: #f4f4f4;
-  --gris-texto: #757575;
-  --texto: #212121;
+  --gris-fondo: #f5f5f5;
+  --texto: #1c1c1c;
+  --texto-sec: rgba(0, 0, 0, .6);
 }
 
 * {
@@ -12,6 +12,8 @@
   box-sizing: border-box;
 }
 
+html { height: 100%; }
+
 body {
   font-family: Roboto, "Segoe UI", Arial, sans-serif;
   background: #fff;
@@ -19,9 +21,12 @@ body {
   padding-bottom: 72px;
   max-width: 480px;
   margin: 0 auto;
+  min-height: 100%;
 }
 
-/* ---------- Barra superior ---------- */
+body.home { background: var(--gris-fondo); }
+
+/* ---------- Barra superior (MuiAppBar) ---------- */
 .appbar {
   position: sticky;
   top: 0;
@@ -31,99 +36,177 @@ body {
   gap: 16px;
   background: var(--azul);
   color: #fff;
-  padding: 12px 16px;
-  min-height: 60px;
+  padding: 0 16px;
+  min-height: 56px;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14);
 }
 
 .appbar .material-icons {
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
 }
 
 .appbar h1 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
+  letter-spacing: .0075em;
   flex: 1;
 }
 
 .avatar {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .avatar .foto {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #e0e0e0 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%239e9e9e"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>') center/70% no-repeat;
 }
 
-/* ---------- Inicio ---------- */
-.accesos {
-  text-align: center;
-  padding: 24px 16px 8px;
-  background: var(--gris-fondo);
-}
-
-.accesos h2 {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
+/* ---------- Botones (MuiButton contained) ---------- */
 .btn {
   display: inline-block;
   background: var(--azul);
   color: #fff;
   text-decoration: none;
+  text-transform: uppercase;
+  font-family: inherit;
   font-weight: 500;
-  letter-spacing: 1px;
-  padding: 12px 24px;
+  font-size: .875rem;
+  letter-spacing: .02857em;
+  line-height: 1.75;
+  padding: 6px 16px;
   border-radius: 4px;
   border: none;
-  font-size: 14px;
   cursor: pointer;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 
-.accesos .btn { margin: 0 8px 16px; }
+.btn:active { background: var(--azul-oscuro); }
+
+/* ---------- Inicio ---------- */
+.accesos {
+  text-align: center;
+  padding: 28px 16px 12px;
+}
+
+.accesos h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.accesos .btn { margin: 0 8px 16px; padding: 10px 24px; }
 
 .banner {
   margin: 16px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15);
-  background: #fff;
-  min-height: 420px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+  background: linear-gradient(165deg, #0b2a63 0%, #004cbe 55%, #2f6fe0 100%);
+  color: #fff;
+  text-align: center;
+  padding: 32px 22px 22px;
 }
 
+.banner .marca {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  opacity: .85;
+  margin-bottom: 20px;
+}
+
+.banner .titulo {
+  display: inline-block;
+  background: #f5b400;
+  color: #fff;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 12px 22px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.banner .fechas {
+  display: inline-block;
+  background: #0b2a63;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+}
+
+.banner ul {
+  list-style: none;
+  text-align: left;
+  margin: 0 auto 24px;
+  max-width: 320px;
+}
+
+.banner ul li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: .9rem;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.banner ul li .material-icons {
+  font-size: 18px;
+  color: #f5b400;
+  margin-top: 1px;
+}
+
+.banner .contacto {
+  background: #0b2a63;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: .8rem;
+  text-align: left;
+}
+
+.banner .contacto .material-icons { font-size: 22px; }
+.banner .contacto strong { font-size: .95rem; }
+
 .bienvenida {
-  padding: 24px 16px 40px;
-  font-size: 28px;
+  padding: 8px 16px 40px;
+  font-size: 1.7rem;
   font-weight: 400;
 }
 
-/* ---------- Menú de registro ---------- */
-.menu-lista { list-style: none; }
+/* ---------- Menú de registro (MuiList) ---------- */
+.menu-lista { list-style: none; background: #fff; }
 
-.menu-lista li {
-  border-bottom: 1px solid #e0e0e0;
-}
+.menu-lista li { border-bottom: 1px solid #e0e0e0; }
 
 .menu-lista a {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 20px 16px;
+  gap: 16px;
+  padding: 14px 16px;
   text-decoration: none;
   color: inherit;
 }
 
+.menu-lista a:active { background: rgba(0,0,0,.04); }
+
 .menu-icono {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--azul);
   color: #fff;
@@ -132,15 +215,18 @@ body {
   justify-content: center;
 }
 
+.menu-icono .material-icons { font-size: 22px; }
+
 .menu-texto h3 {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 400;
-  margin-bottom: 2px;
+  line-height: 1.5;
 }
 
 .menu-texto p {
-  font-size: 14px;
-  color: var(--gris-texto);
+  font-size: .875rem;
+  line-height: 1.43;
+  color: var(--texto-sec);
 }
 
 .menu-lista li.deshabilitado a { pointer-events: none; }
@@ -151,115 +237,113 @@ body {
 /* ---------- Mis clases ---------- */
 .encabezado-clases {
   text-align: center;
-  padding: 32px 16px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 28px 16px 24px;
 }
 
 .encabezado-clases h2 {
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-bottom: 6px;
 }
 
 .encabezado-clases p {
-  font-size: 16px;
-  margin-bottom: 24px;
+  font-size: .875rem;
+  color: var(--texto-sec);
+  margin-bottom: 20px;
+}
+
+hr.divisor {
+  border: none;
+  border-top: 1px solid #e0e0e0;
 }
 
 .clase {
   display: flex;
+  align-items: center;
   gap: 16px;
-  padding: 28px 16px;
+  padding: 16px;
   border-bottom: 1px solid #e0e0e0;
+  text-align: left;
 }
 
 .clase-icono {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--azul);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: center;
 }
 
-.clase-info { flex: 1; }
+.clase-icono .material-icons { font-size: 22px; }
+
+.clase-info { flex: 1; min-width: 0; }
 
 .clase-info h3 {
-  font-size: 19px;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 2px;
 }
 
 .clase-info .dato {
-  font-size: 15px;
-  color: var(--gris-texto);
-  margin-bottom: 4px;
+  font-size: .875rem;
+  line-height: 1.5;
+  color: var(--texto-sec);
+}
+
+.clase-info .dato b { font-weight: 700; }
+
+/* Tabla de notas (igual a .tablanotamisclasesele del sitio real) */
+.tablanota {
+  padding: .2rem;
+  width: 12rem;
+  background: var(--azul);
   line-height: 1.4;
+  margin-bottom: .1rem;
+  font-size: .8rem;
+  user-select: none;
 }
 
-.clase-info .dato strong { color: #555; }
-
-.fila-aula {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+.tablanota label {
+  display: inline-block;
+  color: #fff;
+  width: 7rem;
 }
 
+.tablanota span {
+  display: inline-block;
+  background: #fff;
+  color: #1c1c1c;
+  width: 5rem;
+  text-align: center;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+/* Chip (MuiChip outlined small) */
 .chip {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 14px;
+  gap: 5px;
+  border: 1px solid rgba(0,0,0,.23);
+  border-radius: 16px;
+  height: 24px;
+  padding: 0 8px;
+  font-size: .8125rem;
   white-space: nowrap;
   background: #fff;
+  color: var(--texto);
 }
 
-.chip .material-icons { font-size: 18px; }
+.chip .material-icons { font-size: 16px; color: #616161; }
 
-.notas { margin-top: 4px; }
-
-.notas-titulo {
-  font-size: 15px;
-  font-weight: 700;
-  color: #555;
-  margin-bottom: 6px;
-}
-
-.tabla-notas {
-  border-collapse: separate;
-  border-spacing: 0 6px;
-  width: 100%;
-  max-width: 340px;
-}
-
-.tabla-notas td {
-  border: 3px solid var(--azul);
-  font-size: 15px;
-  padding: 5px 10px;
-}
-
-.tabla-notas td:first-child {
-  background: var(--azul);
-  color: #fff;
-  width: 60%;
-}
-
-.tabla-notas td:last-child {
-  background: #fff;
-  font-weight: 700;
-  text-align: center;
-}
-
-/* ---------- Barra inferior ---------- */
+/* ---------- Barra inferior (MuiBottomNavigation) ---------- */
 .navbar {
   position: fixed;
   bottom: 0;
@@ -278,11 +362,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 10px 0 8px;
+  gap: 1px;
+  padding: 8px 0 10px;
   text-decoration: none;
-  color: #616161;
-  font-size: 12.5px;
+  color: rgba(0,0,0,.6);
+  font-size: .75rem;
 }
 
-.navbar a.activo { color: var(--azul); }
+.navbar a .material-icons { font-size: 24px; }
+
+.navbar a.activo {
+  color: var(--azul);
+  font-size: .8125rem;
+}
