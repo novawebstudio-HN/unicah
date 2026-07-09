@@ -195,8 +195,8 @@ body.home { background: var(--gris-fondo); }
 .menu-lista a {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 14px 16px;
+  gap: 18px;
+  padding: 18px 16px;
   text-decoration: none;
   color: inherit;
 }
@@ -205,8 +205,8 @@ body.home { background: var(--gris-fondo); }
 
 .menu-icono {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--azul);
   color: #fff;
@@ -218,7 +218,7 @@ body.home { background: var(--gris-fondo); }
 .menu-icono .material-icons { font-size: 22px; }
 
 .menu-texto h3 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -342,6 +342,121 @@ hr.divisor {
 }
 
 .chip .material-icons { font-size: 16px; color: #616161; }
+
+/* ---------- Ripple (MuiTouchRipple) ---------- */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .25;
+  pointer-events: none;
+  transform: scale(0);
+  animation: onda .55s ease-out forwards;
+}
+
+@keyframes onda {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* ---------- Menú lateral (MuiDrawer) ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+  z-index: 20;
+}
+
+.overlay.visible { opacity: 1; pointer-events: auto; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 280px;
+  max-width: 80%;
+  background: #fff;
+  z-index: 21;
+  transform: translateX(-100%);
+  transition: transform .25s ease-out;
+  box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14);
+  overflow-y: auto;
+}
+
+.drawer.abierto { transform: translateX(0); }
+
+.drawer .drawer-logo {
+  height: 64px;
+  background: var(--azul);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 3px;
+}
+
+.drawer nav a {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+.drawer nav a .material-icons { color: rgba(0,0,0,.54); font-size: 24px; }
+
+.drawer nav a.seleccionado { background: rgba(0,76,190,.08); }
+
+.drawer nav a .mini-chip {
+  margin-left: auto;
+  background: #e0e0e0;
+  border-radius: 12px;
+  font-size: .75rem;
+  padding: 2px 8px;
+}
+
+/* ---------- Menú del avatar (MuiMenu) ---------- */
+.avatar { cursor: pointer; }
+
+.menu-avatar {
+  position: fixed;
+  top: 56px;
+  right: 8px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  z-index: 22;
+  padding: 8px 0;
+  min-width: 180px;
+  display: none;
+}
+
+.menu-avatar.visible { display: block; }
+
+.menu-avatar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+.menu-avatar a:active { background: rgba(0,0,0,.04); }
+.menu-avatar a .material-icons { font-size: 20px; color: rgba(0,0,0,.54); }
 
 /* ---------- Barra inferior (MuiBottomNavigation) ---------- */
 .navbar {

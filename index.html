@@ -11,7 +11,7 @@
 <body class="home">
 
   <header class="appbar">
-    <span class="material-icons">menu</span>
+    <span class="material-icons" id="btn-menu">menu</span>
     <h1>Inicio</h1>
     <div class="avatar">
       <div class="foto"></div>
@@ -43,6 +43,25 @@
 
   <h2 class="bienvenida">Bienvenido a la plataforma</h2>
 
+  <div class="overlay"></div>
+  <aside class="drawer">
+    <div class="drawer-logo">UNICAH</div>
+    <nav>
+      <a href="index.html" class="seleccionado"><span class="material-icons">home</span>Inicio</a>
+      <a href="registro.html"><span class="material-icons">app_registration</span>Registro<span class="mini-chip">Matrícula</span></a>
+      <a href="#"><span class="material-icons">workspace_premium</span>Credential Hub</a>
+      <a href="#"><span class="material-icons">forum</span>Mensajes</a>
+      <a href="#"><span class="material-icons">receipt_long</span>Estado de cuenta</a>
+      <a href="#"><span class="material-icons">school</span>Aula virtual</a>
+      <a href="#"><span class="material-icons">power_settings_new</span>Salir</a>
+    </nav>
+  </aside>
+
+  <div class="menu-avatar">
+    <a href="#"><span class="material-icons">person</span>Perfil</a>
+    <a href="#"><span class="material-icons">power_settings_new</span>Cerrar sesión</a>
+  </div>
+
   <nav class="navbar">
     <a href="index.html" class="activo">
       <span class="material-icons">home</span>
@@ -62,5 +81,6 @@
     </a>
   </nav>
 
+  <script src="app.js"></script>
 </body>
 </html>
