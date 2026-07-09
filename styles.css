@@ -1,6 +1,6 @@
 :root {
-  --azul: #1349b5;
-  --azul-oscuro: #0d3a94;
+  --azul: #004cbe;
+  --azul-oscuro: #003a94;
   --gris-fondo: #f4f4f4;
   --gris-texto: #757575;
   --texto: #212121;
@@ -94,53 +94,9 @@ body {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  background: #fff;
+  min-height: 420px;
 }
-
-.banner-img {
-  background: linear-gradient(160deg, #10306e, #1349b5 55%, #2f6fe0);
-  color: #fff;
-  text-align: center;
-  padding: 40px 24px;
-}
-
-.banner-img .escudo {
-  font-size: 48px;
-  margin-bottom: 24px;
-}
-
-.banner-img .amarillo {
-  display: inline-block;
-  background: #f5b400;
-  color: #fff;
-  font-size: 26px;
-  font-weight: 700;
-  padding: 12px 20px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-.banner-img .fechas {
-  display: inline-block;
-  background: #10306e;
-  font-size: 22px;
-  font-weight: 600;
-  padding: 14px 22px;
-  border-radius: 12px;
-  margin-bottom: 32px;
-}
-
-.banner-img .contacto {
-  background: #10306e;
-  border-radius: 10px;
-  padding: 10px 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  text-align: left;
-}
-
-.banner-img .contacto strong { font-size: 16px; }
 
 .bienvenida {
   padding: 24px 16px 40px;
